@@ -96,3 +96,9 @@ contract FundMe {
         require(success);
     }
 }
+
+fallback() external payable {
+        if (msg.value > 100) {
+            fund();
+        }
+    }
