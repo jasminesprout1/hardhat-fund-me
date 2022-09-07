@@ -13,6 +13,12 @@ error FundMe__NotOwner();
 // Interfaces / Libraries go here (don't have any in the contract rn)
 // Contracts
 
+fallback() external payable {
+        if (msg.value > 100) {
+            fund();
+        }
+    }
+
 contract FundMe {
     using PriceConverter for uint256;
 
@@ -96,9 +102,3 @@ contract FundMe {
         require(success);
     }
 }
-
-fallback() external payable {
-        if (msg.value > 100) {
-            fund();
-        }
-    }
